@@ -51,4 +51,6 @@ make test-api-stubs-docs || echo no problem
 
 make bacon -j10
 ls out/target/product/*/
+echo $1
+up()
 ccache -s # Let's print ccache statistics finally
