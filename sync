@@ -11,18 +11,3 @@ git clone https://github.com/MLZ94/local_manifest.git --depth 1 -b p404 .repo/lo
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 60 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
- 
-ls vendor/codeaurora/commonsys/telephony
-cd vendor/codeaurora/commonsys/telephony
-git log --oneline -10
-cd ..
-cd ..
-cd ..
-cd ..
-ls vendor/codeaurora/telephony
-cd vendor/codeaurora/telephony
-git log --oneline -10
-cd ..
-cd ..
-cd ..
-
