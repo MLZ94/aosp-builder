@@ -49,7 +49,7 @@ id=571213272 # Your telegram id
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 
-make bacon -j10
+make vendorimage -j10
 ls out/target/product/*/
 echo $1
 up()
