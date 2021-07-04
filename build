@@ -1,3 +1,4 @@
+
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
 
@@ -51,6 +52,5 @@ id=571213272 # Your telegram id
 
 make vendorimage -j10
 ls out/target/product/*/
-echo $1
-up()
-ccache -s # Let's print ccache statistics finally
+echo "$1 build success"
+curl --upload-file out/target/product/X00QD/vendor.img https://transfer.sh/vendor404.img
