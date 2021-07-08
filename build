@@ -4,7 +4,7 @@ cd /tmp/rom # Depends on where source got synced
 
 # Normal build steps
 . build/envsetup.sh
-lunch p404_X00QD-userdebug
+lunch nezuko_X00QD-userdebug
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -50,7 +50,9 @@ id=571213272 # Your telegram id
 #make system-api-stubs-docs || echo no problem
 #make test-api-stubs-docs || echo no problem
 
-make vendorimage -j10
+#make vendorimage -j10
+mma Settings-core
+mma SystemUI-core 
 ls out/target/product/*/
 echo "$1 build success"
-curl --upload-file out/target/product/X00QD/vendor.img https://transfer.sh/vendor404.img
+#curl --upload-file out/target/product/X00QD/vendor.img https://transfer.sh/vendor404.img

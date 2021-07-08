@@ -4,10 +4,15 @@ mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
 # Repo init command, that -device,-mips,-darwin,-notdefault part will save you more time and storage to sync, add more according to your rom and choice. Optimization is welcomed! Let's make it quit, and with depth=1 so that no unnecessary things.
-repo init -q --no-repo-verify --depth=1 -u https://github.com/P-404/platform_manifest -b rippa -g default,-device,-mips,-darwin,-notdefault
- 
+#repo init -q --no-repo-verify --depth=1 -u https://github.com/P-404/platform_manifest -b rippa -g default,-device,-mips,-darwin,-notdefault
+repo init -q --no-repo-verify --depth=1 -u https://github.com/NezukoOS/manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
+
 # Clone local manifest! So that no need to manually git clone repos or change hals, you can use normal git clone or rm and re clone, they will cost little more time, and you may get timeout! Let's make it quit and depth=1 too.
-git clone https://github.com/MLZ94/local_manifest.git --depth 1 -b p404 .repo/local_manifests
+git clone https://github.com/MLZ94/local_manifest.git --depth 1 -b main .repo/local_manifests
 
 # Sync source with -q, no need unnecessary messages, you can remove -q if want! try with -j30 first, if fails, it will try again with -j8
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 60 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j 8
+rm -rf packages/ap*/Themer
+rm -rf frameworks/base
+git clone https://github.com/MLZ94/frameworks_base-1 --depth 1 -b yeet frameworks/base
+git clone https://github.com/MLZ94/nezuko_extra -b yeet packages/apps/Themer
